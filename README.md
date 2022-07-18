@@ -1,7 +1,5 @@
 
-# DEPRECATED USE LIBMPV-RS INSTEAD
-
-https://crates.io/crates/libmpv
+## OpenGl bindings stripped for support of newer libmpv.
 
 # mpv-rs
 

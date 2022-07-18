@@ -81,7 +81,7 @@ pub fn to_event<'a>(event_id:MpvEventId,
             let prefix = unsafe { CStr::from_ptr(log_message.prefix).to_str().unwrap() };
             let level  = unsafe { CStr::from_ptr(log_message.level ).to_str().unwrap() };
             let text   = unsafe { CStr::from_ptr(log_message.text  ).to_str().unwrap() };
-            Some(Event::LogMessage{prefix:prefix,level:level,text:text,log_level:log_message.log_level})
+            Some(Event::LogMessage{prefix,level,text,log_level:log_message.log_level})
         },
         MpvEventId::MPV_EVENT_GET_PROPERTY_REPLY    => {
             let property_struct = unsafe {*(data as *mut mpv_event_property)};
@@ -92,7 +92,7 @@ pub fn to_event<'a>(event_id:MpvEventId,
                  .unwrap()
             };
             let result = ret_to_result(error, format_result);
-            Some(Event::GetPropertyReply{name:string,result:result,reply_userdata:userdata})
+            Some(Event::GetPropertyReply{name:string,result,reply_userdata:userdata})
         },
         MpvEventId::MPV_EVENT_SET_PROPERTY_REPLY    => Some(Event::SetPropertyReply(ret_to_result(error,()), userdata)),
         MpvEventId::MPV_EVENT_COMMAND_REPLY         => Some(Event::CommandReply(ret_to_result(error,()), userdata)),
@@ -128,7 +128,7 @@ pub fn to_event<'a>(event_id:MpvEventId,
                  .to_str()
                  .unwrap()
             };
-            Some(Event::PropertyChange{name:name,change:format_result,reply_userdata:userdata})
+            Some(Event::PropertyChange{name,change:format_result,reply_userdata:userdata})
         },
         MpvEventId::MPV_EVENT_CHAPTER_CHANGE        => Some(Event::ChapterChange),
         MpvEventId::MPV_EVENT_QUEUE_OVERFLOW        => Some(Event::QueueOverflow),

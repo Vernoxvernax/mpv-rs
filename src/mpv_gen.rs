@@ -446,7 +446,7 @@ pub enum SubApi {
 }
 pub type mpv_sub_api = SubApi;
 pub enum Struct_mpv_opengl_cb_context { }
-pub type mpv_opengl_cb_context = Struct_mpv_opengl_cb_context;
+// pub type mpv_opengl_cb_context = Struct_mpv_opengl_cb_context;
 pub type mpv_opengl_cb_update_fn =
     ::std::option::Option<unsafe extern "C" fn(cb_ctx: *mut ::std::os::raw::c_void)>;
 pub type mpv_opengl_cb_get_proc_address_fn =
@@ -558,28 +558,28 @@ extern "C" {
                                    d: *mut ::std::os::raw::c_void);
     pub fn mpv_get_wakeup_pipe(ctx: *mut mpv_handle) -> ::std::os::raw::c_int;
     pub fn mpv_wait_async_requests(ctx: *mut mpv_handle);
-    pub fn mpv_get_sub_api(ctx: *mut mpv_handle,
-                           sub_api: mpv_sub_api)
-                           -> *mut ::std::os::raw::c_void;
-    pub fn mpv_opengl_cb_set_update_callback(ctx: *mut mpv_opengl_cb_context,
-                                             callback: mpv_opengl_cb_update_fn,
-                                             callback_ctx: *mut ::std::os::raw::c_void);
-    pub fn mpv_opengl_cb_init_gl(ctx: *mut mpv_opengl_cb_context,
-                                 exts: *const ::std::os::raw::c_char,
-                                 get_proc_address: mpv_opengl_cb_get_proc_address_fn,
-                                 get_proc_address_ctx: *mut ::std::os::raw::c_void)
-                                 -> ::std::os::raw::c_int;
-    pub fn mpv_opengl_cb_draw(ctx: *mut mpv_opengl_cb_context,
-                              fbo: ::std::os::raw::c_int,
-                              w: ::std::os::raw::c_int,
-                              h: ::std::os::raw::c_int)
-                              -> ::std::os::raw::c_int;
-    pub fn mpv_opengl_cb_render(ctx: *mut mpv_opengl_cb_context,
-                                fbo: ::std::os::raw::c_int,
-                                vp: *mut ::std::os::raw::c_int)
-                                -> ::std::os::raw::c_int;
-    pub fn mpv_opengl_cb_report_flip(ctx: *mut mpv_opengl_cb_context,
-                                     time: int64_t)
-                                     -> ::std::os::raw::c_int;
-    pub fn mpv_opengl_cb_uninit_gl(ctx: *mut mpv_opengl_cb_context) -> ::std::os::raw::c_int;
+    // pub fn mpv_get_sub_api(ctx: *mut mpv_handle,
+    //                        sub_api: mpv_sub_api)
+    //                        -> *mut ::std::os::raw::c_void;
+    // pub fn mpv_render_context_set_update_callback(ctx: *mut mpv_opengl_cb_context,
+    //                                          callback: mpv_opengl_cb_update_fn,
+    //                                          callback_ctx: *mut ::std::os::raw::c_void);
+    // pub fn mpv_render_context_create(ctx: *mut mpv_opengl_cb_context,
+    //                              exts: *const ::std::os::raw::c_char,
+    //                              get_proc_address: mpv_opengl_cb_get_proc_address_fn,
+    //                              get_proc_address_ctx: *mut ::std::os::raw::c_void)
+    //                              -> ::std::os::raw::c_int;
+    // pub fn mpv_render_context_render(ctx: *mut mpv_opengl_cb_context,
+    //                           fbo: ::std::os::raw::c_int,
+    //                           w: ::std::os::raw::c_int,
+    //                           h: ::std::os::raw::c_int)
+    //                           -> ::std::os::raw::c_int;
+    // pub fn mpv_opengl_cb_render(ctx: *mut mpv_opengl_cb_context,
+    //                             fbo: ::std::os::raw::c_int,
+    //                             vp: *mut ::std::os::raw::c_int)
+    //                             -> ::std::os::raw::c_int;
+    // pub fn mpv_render_context_report_swap(ctx: *mut mpv_opengl_cb_context,
+    //                                  time: int64_t)
+    //                                  -> ::std::os::raw::c_int;
+    // pub fn mpv_render_context_free(ctx: *mut mpv_opengl_cb_context) -> ::std::os::raw::c_int;
 }

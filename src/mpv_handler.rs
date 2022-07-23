@@ -1,3 +1,4 @@
+#![allow(temporary_cstring_as_ptr)]
 use mpv_gen::{mpv_command, mpv_command_async, mpv_wait_event, mpv_create, mpv_initialize,
               mpv_terminate_destroy, mpv_handle, mpv_set_option,
               mpv_set_property, mpv_set_property_async, mpv_get_property,

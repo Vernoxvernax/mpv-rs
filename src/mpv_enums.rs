@@ -107,17 +107,17 @@ pub fn to_event<'a>(event_id:MpvEventId,
             Some(Event::EndFile(result))
         }
         MpvEventId::MPV_EVENT_FILE_LOADED           => Some(Event::FileLoaded),
-        MpvEventId::MPV_EVENT_TRACKS_CHANGED        => Some(Event::TracksChanged),
-        MpvEventId::MPV_EVENT_TRACK_SWITCHED        => Some(Event::TrackSwitched),
+        // MpvEventId::MPV_EVENT_TRACKS_CHANGED        => Some(Event::TracksChanged),
+        // MpvEventId::MPV_EVENT_TRACK_SWITCHED        => Some(Event::TrackSwitched),
         MpvEventId::MPV_EVENT_IDLE                  => Some(Event::Idle),
-        MpvEventId::MPV_EVENT_PAUSE                 => Some(Event::Pause),
-        MpvEventId::MPV_EVENT_UNPAUSE               => Some(Event::Unpause),
+        // MpvEventId::MPV_EVENT_PAUSE                 => Some(Event::Pause),
+        // MpvEventId::MPV_EVENT_UNPAUSE               => Some(Event::Unpause),
         MpvEventId::MPV_EVENT_TICK                  => Some(Event::Tick),
         MpvEventId::MPV_EVENT_SCRIPT_INPUT_DISPATCH => Some(Event::Unused),
         MpvEventId::MPV_EVENT_CLIENT_MESSAGE        => unimplemented!(),
         MpvEventId::MPV_EVENT_VIDEO_RECONFIG        => Some(Event::VideoReconfig),
         MpvEventId::MPV_EVENT_AUDIO_RECONFIG        => Some(Event::AudioReconfig),
-        MpvEventId::MPV_EVENT_METADATA_UPDATE       => Some(Event::MetadataUpdate),
+        // MpvEventId::MPV_EVENT_METADATA_UPDATE       => Some(Event::MetadataUpdate),
         MpvEventId::MPV_EVENT_SEEK                  => Some(Event::Seek),
         MpvEventId::MPV_EVENT_PLAYBACK_RESTART      => Some(Event::PlaybackRestart),
         MpvEventId::MPV_EVENT_PROPERTY_CHANGE       => {
@@ -130,7 +130,7 @@ pub fn to_event<'a>(event_id:MpvEventId,
             };
             Some(Event::PropertyChange{name,change:format_result,reply_userdata:userdata})
         },
-        MpvEventId::MPV_EVENT_CHAPTER_CHANGE        => Some(Event::ChapterChange),
+        // MpvEventId::MPV_EVENT_CHAPTER_CHANGE        => Some(Event::ChapterChange),
         MpvEventId::MPV_EVENT_QUEUE_OVERFLOW        => Some(Event::QueueOverflow),
     }
 }
